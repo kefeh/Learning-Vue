@@ -1,0 +1,114 @@
+/* Search */
+.search {
+    flex: 0 0 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-input{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #a9a9d693;
+    border: none;
+    padding: 0 4vh;
+    height: 5vh;
+    border-radius: 100px;
+    width: 90%;
+    background-color: #0b91cb3a;
+    margin-right: -2vw;
+    font-size: 2vh;
+}
+.search-input:focus{
+    outline: none;
+    width: 100%;
+    background-color: #0b91cb3a;
+    color: #a9a9d6;
+}
+.search-button{
+    border: none;
+    background-color: #0b91cb;
+    border-radius: 100px;
+    padding: 1vh;
+    outline: none;
+}
+.search-button::-moz-focus-inner{
+    border: none;
+}
+.search-button:focus{
+    outline: none;
+    transform: translateY(2px);
+    background-color: #0b91cb;
+}
+.search-icon{
+    height: 3.5vh;
+    width: 3.5vh;
+    fill: white;
+}
+.search-icon:focus, .search-icon:active{
+    outline: none;
+}
+
+/* Sort */
+.sort-button{
+    padding: 1vh;
+    border-radius: 1vh;
+}
+.sort-button:focus{
+    outline: none;
+    transform: translateY(2px);
+}
+.sort-button::-moz-focus-inner{
+    border: none;
+}
+.sort-icon{
+    height: 3vh;
+    width: 3vh;
+    fill: white;
+}
+
+/* Extend */
+.extend{
+    width: 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.extend-icon{
+    height: 4.5vh;
+    width: 2.5vw;
+    fill: white;
+}
+
+/* Profile */
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.profile span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+.profile-icon{
+    height: 9.5vh;
+    width: 5vw;
+    fill: white;
+    border: 3.5px solid white;
+    border-radius: 500px;
+    margin-bottom: 1vh;
+}
+
+/* btn icons */
+.btn-icon{
+    width: 4vh;
+    height: 4vh;
+    fill: white;
+    display: absolute;
+    top: 10rem;
+}
+.cat-icon, .audit-icon{
+    width: 3.5vh;
+    height: 3.5vh;
+}

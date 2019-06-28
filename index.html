@@ -1,10 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Docker container assignment</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <title>Document</title>
 </head>
 <body>
-	<h1>hello world</h1>
+    <section class="container">
+        <div class="section-query">
+            <form action="#" class="query-item search">
+                <input type="text" class="search-input" placeholder="Search favorite things">
+                <button class="search-button">
+                    <svg class="search-icon">
+                        <!-- <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use> -->
+                        <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use>
+                    </svg>
+                </button>
+            </form>
+            <button class="query-item sort-button btn">
+                <span>Sort By</span>
+                <svg class="sort-icon">
+                    <use xlink:href="icons/sprite.svg#icon-chevron-down"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="card section-side">
+                    <div class="profile side-item1">
+                        <svg class="profile-icon">
+                            <use xlink:href="icons/sprite.svg#icon-user"></use>
+                        </svg>
+                        <span>PROFILE NAME</span>
+                    </div>
+                    <div class="side-nav nav-btn">
+                        <button class="add-new btn primary">
+                            <div class="btn-icon-holder icon-box">
+                                <svg class="add-new-icon btn-icon">
+                                    <use xlink:href="icons/sprite.svg#icon-plus"></use> 
+                                </svg>
+                            </div>
+                            <span class="btn-text">Add New</span>
+                        </button>
+                        <button class="add-new btn primary">
+                            <div class="btn-icon-holder icon-box">
+                                <svg class="add-new-icon btn-icon">
+                                    <use xlink:href="icons/sprite.svg#icon-slideshare"></use> 
+                                </svg>
+                            </div>
+                            <span class="btn-text">Fav Things</span>
+                        </button>
+                        <button class="add-new btn primary">
+                            <div class="btn-icon-holder icon-box">
+                                <svg class="cat-icon btn-icon">
+                                    <use xlink:href="icons/sprite.svg#icon-tree"></use> 
+                                </svg>
+                            </div>
+                            <span class="btn-text">Categories</span>
+                        </button>
+                        <button class="add-new btn primary">
+                            <div class="btn-icon-holder icon-box">
+                                <svg class="audit-icon btn-icon">
+                                    <use xlink:href="icons/sprite.svg#icon-bar-graph"></use> 
+                                </svg>
+                            </div>
+                            <span class="btn-text">Audit Logs</span>
+                        </button>
+                    </div>
+                    <div class="rank-element side-item">
+                        <h3 class="rank-text">Top Ranked</h3>
+                        <ol class="rank-item-holder">
+                            <li class="rank-items card">
+                                <span class="item">Christian Sob Asnel</span>
+                                <div class="card category">
+                                    <span class="cat-text">Person</span>
+                                </div>
+                            </li>
+                            <li class="rank-items card">
+                                <span class="item">Christian Sob Asnel</span>
+                                <div class="card category">
+                                    <span class="cat-text">Person</span>
+                                </div>
+                            </li>
+                            <li class="rank-items card">
+                                <span class="item">Christian Sob Asnel</span>
+                                <div class="card category">
+                                    <span class="cat-text">Person</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="horizontal-gutter"></div>
+            <div class="col-3-of-4">
+                <nav class="header">
+                    <ul class="top-nav">
+                        <li class="top-nav-item">
+                            <!-- clickable list items,using a tag as a placeholder -->
+                            <span>Place</span>
+                        </li>
+                        <li class="top-nav-item">
+                            <!-- clickable list items,using a tag as a placeholder -->
+                            <span>Person</span>
+                        </li>
+                        <li class="top-nav-item">
+                            <!-- clickable list items,using a tag as a placeholder -->
+                            <span>Things</span>
+                        </li>
+                        <li class="top-nav-item">
+                            <!-- clickable list items,using a tag as a placeholder -->
+                            <span>Movies</span>
+                        </li>
+                    </ul>
+                    <div class="extend">
+                        <svg class="extend-icon">
+                            <use href="icons/sprite.svg#icon-chevron-right"></use>
+                        </svg>
+                    </div>
+                </nav>
+                <ul class="favorite-things">
+                    <li class="list-items row">
+                        <div class="col-1-of-4 col-small">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3-of-4"></div>
+                    </li>
+                    <li class="list-items row">
+                        <div class="col-1-of-4 col-small">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3-of-4"></div>
+                    </li>
+                    <li class="list-items row">
+                        <div class="col-1-of-4 col-small">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3-of-4"></div>
+                    </li>
+                    <li class="list-items row">
+                        <div class="col-1-of-4 col-small">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3-of-4"></div>
+                    </li>
+                    <li class="list-items row">
+                        <div class="col-1-of-4 col-small">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>1</span>
+                                </div>
+                            </div>
+                            <div class="created-at">
+                                <span class="created-at-text"></span>
+                            </div>
+                        </div>
+                        <div class="col-3-of-4">
+                            <div class="col-3-of-4">
+
+                            </div>
+                            <div class="col-1-of-4 col-small">
+                                <div class="edit-icon-holder">
+                                    <svg class="edit-icon">
+                                        <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                                    </svg>
+                                </div>
+                                <span class="time">09:54</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
