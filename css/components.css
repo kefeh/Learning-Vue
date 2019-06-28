@@ -23,13 +23,7 @@
     background-color: #0b91cb3a;
     color: #a9a9d6;
 }
-.search-button{
-    border: none;
-    background-color: #0b91cb;
-    border-radius: 100px;
-    padding: 1vh;
-    outline: none;
-}
+
 .search-button::-moz-focus-inner{
     border: none;
 }
@@ -37,11 +31,6 @@
     outline: none;
     transform: translateY(2px);
     background-color: #0b91cb;
-}
-.search-icon{
-    height: 3.5vh;
-    width: 3.5vh;
-    fill: white;
 }
 .search-icon:focus, .search-icon:active{
     outline: none;
@@ -74,11 +63,6 @@
     justify-content: center;
     cursor: pointer;
 }
-.extend-icon{
-    height: 4.5vh;
-    width: 2.5vw;
-    fill: white;
-}
 
 /* Profile */
 .profile{
@@ -94,21 +78,31 @@
 .profile-icon{
     height: 9.5vh;
     width: 5vw;
-    fill: white;
-    border: 3.5px solid white;
-    border-radius: 500px;
-    margin-bottom: 1vh;
+    fill: rgba(255, 255, 255, 0.7);
 }
 
 /* btn icons */
-.btn-icon{
+.btn-icon, .extend-icon, .delete-icon{
     width: 4vh;
     height: 4vh;
-    fill: white;
-    display: absolute;
-    top: 10rem;
+    fill: rgba(255, 255, 255, 0.8);
 }
-.cat-icon, .audit-icon{
-    width: 3.5vh;
-    height: 3.5vh;
+
+.edit-icon, .search-icon{
+    width: 2.5vh;
+    height: 2.5vh;
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+.delete-icon{
+    fill: rgb(182, 14, 42);
+    display: none;
+}
+.drag-dots-icon{
+    width: 1vw;
+    height: 2vh;
+    fill: rgba(255, 255, 255, 0.30);
+}
+.drag-dots-icon:first-child{
+    margin-right: -25%;
 }

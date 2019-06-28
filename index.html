@@ -16,14 +16,14 @@
                 <button class="search-button">
                     <svg class="search-icon">
                         <!-- <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use> -->
-                        <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use>
+                        <use xlink:href="icons/sprite.svg#icon-baseline-search-24px"></use>
                     </svg>
                 </button>
             </form>
             <button class="query-item sort-button btn">
                 <span>Sort By</span>
                 <svg class="sort-icon">
-                    <use xlink:href="icons/sprite.svg#icon-chevron-down"></use>
+                    <use xlink:href="icons/sprite.svg#icon-outline-expand_more-24px"></use>
                 </svg>
             </button>
         </div>
@@ -32,7 +32,7 @@
                 <div class="card section-side">
                     <div class="profile side-item1">
                         <svg class="profile-icon">
-                            <use xlink:href="icons/sprite.svg#icon-user"></use>
+                            <use xlink:href="icons/sprite.svg#icon-outline-account"></use>
                         </svg>
                         <span>PROFILE NAME</span>
                     </div>
@@ -40,7 +40,7 @@
                         <button class="add-new btn primary">
                             <div class="btn-icon-holder icon-box">
                                 <svg class="add-new-icon btn-icon">
-                                    <use xlink:href="icons/sprite.svg#icon-plus"></use> 
+                                    <use xlink:href="icons/sprite.svg#icon-outline-add-24px"></use> 
                                 </svg>
                             </div>
                             <span class="btn-text">Add New</span>
@@ -48,7 +48,7 @@
                         <button class="add-new btn primary">
                             <div class="btn-icon-holder icon-box">
                                 <svg class="add-new-icon btn-icon">
-                                    <use xlink:href="icons/sprite.svg#icon-slideshare"></use> 
+                                    <use xlink:href="icons/sprite.svg#icon-outline-nature_people-24px"></use> 
                                 </svg>
                             </div>
                             <span class="btn-text">Fav Things</span>
@@ -56,7 +56,7 @@
                         <button class="add-new btn primary">
                             <div class="btn-icon-holder icon-box">
                                 <svg class="cat-icon btn-icon">
-                                    <use xlink:href="icons/sprite.svg#icon-tree"></use> 
+                                    <use xlink:href="icons/sprite.svg#icon-outline-category-24px"></use> 
                                 </svg>
                             </div>
                             <span class="btn-text">Categories</span>
@@ -64,7 +64,7 @@
                         <button class="add-new btn primary">
                             <div class="btn-icon-holder icon-box">
                                 <svg class="audit-icon btn-icon">
-                                    <use xlink:href="icons/sprite.svg#icon-bar-graph"></use> 
+                                    <use xlink:href="icons/sprite.svg#icon-outline-assessment-24px"></use> 
                                 </svg>
                             </div>
                             <span class="btn-text">Audit Logs</span>
@@ -118,78 +118,228 @@
                     </ul>
                     <div class="extend">
                         <svg class="extend-icon">
-                            <use href="icons/sprite.svg#icon-chevron-right"></use>
+                            <use href="icons/sprite.svg#icon-baseline-arrow_forward_ios-24px"></use>
                         </svg>
                     </div>
                 </nav>
                 <ul class="favorite-things">
-                    <li class="list-items row">
-                        <div class="col-1-of-4 col-small">
-                            <div class="rank">
-                                <span>Rank</span>
-                                <div class="number-holder">
-                                    <span>1</span>
-                                </div>
-                            </div>
+                    <li onclick="location.href='#';" class="list-items row">
+                        <div class="drag-dots-holder">
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
                         </div>
-                        <div class="col-3-of-4"></div>
-                    </li>
-                    <li class="list-items row">
-                        <div class="col-1-of-4 col-small">
+                        <div class="col-1-of-4 col-small rank-content">
                             <div class="rank">
                                 <span>Rank</span>
                                 <div class="number-holder">
-                                    <span>1</span>
+                                    <span>01</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-3-of-4"></div>
-                    </li>
-                    <li class="list-items row">
-                        <div class="col-1-of-4 col-small">
-                            <div class="rank">
-                                <span>Rank</span>
-                                <div class="number-holder">
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3-of-4"></div>
-                    </li>
-                    <li class="list-items row">
-                        <div class="col-1-of-4 col-small">
-                            <div class="rank">
-                                <span>Rank</span>
-                                <div class="number-holder">
-                                    <span>1</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3-of-4"></div>
-                    </li>
-                    <li class="list-items row">
-                        <div class="col-1-of-4 col-small">
-                            <div class="rank">
-                                <span>Rank</span>
-                                <div class="number-holder">
-                                    <span>1</span>
-                                </div>
-                            </div>
-                            <div class="created-at">
-                                <span class="created-at-text"></span>
-                            </div>
+                            <span class="created-at-text">created at 4th April 2019</span>
                         </div>
                         <div class="col-3-of-4">
-                            <div class="col-3-of-4">
-
-                            </div>
-                            <div class="col-1-of-4 col-small">
-                                <div class="edit-icon-holder">
-                                    <svg class="edit-icon">
-                                        <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                            <div class="fav-thing-info">
+                                <div class="col-3-of-4 fav-thing">
+                                    <span class="fav-title">Ngoulla Sob Christian</span>
+                                    <span class="fav-description">Hope you are doing well and hope this finds you well. I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply 
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                    </span>
+                                    <span class="fav-metadata">Some of the metadata that can exist</span>
+                                </div>
+                                <div class="col-1-of-4 col-small fav-item">
+                                    <div class="edit-icon-holder">
+                                        <svg class="edit-icon">
+                                            <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                                        </svg>
+                                    </div>
+                                    <span class="time">09:54</span>
+                                    <svg class="delete-icon">
+                                        <use xlink:href="icons/sprite.svg#icon-outline-delete_forever-24px"></use>
                                     </svg>
                                 </div>
-                                <span class="time">09:54</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li onclick="location.href='#';" class="list-items row">
+                        <div class="drag-dots-holder">
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                        </div>
+                        <div class="col-1-of-4 col-small rank-content">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>01</span>
+                                </div>
+                            </div>
+                            <span class="created-at-text">created at 4th April 2019</span>
+                        </div>
+                        <div class="col-3-of-4">
+                            <div class="fav-thing-info">
+                                <div class="col-3-of-4 fav-thing">
+                                    <span class="fav-title">Ngoulla Sob Christian</span>
+                                    <span class="fav-description">Hope you are doing well and hope this finds you well. I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply 
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                    </span>
+                                    <span class="fav-metadata">Some of the metadata that can exist</span>
+                                </div>
+                                <div class="col-1-of-4 col-small fav-item">
+                                    <div class="edit-icon-holder">
+                                        <svg class="edit-icon">
+                                            <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                                        </svg>
+                                    </div>
+                                    <span class="time">09:54</span>
+                                    <svg class="delete-icon">
+                                        <use xlink:href="icons/sprite.svg#icon-outline-delete_forever-24px"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li onclick="location.href='#';" class="list-items row">
+                        <div class="drag-dots-holder">
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                        </div>
+                        <div class="col-1-of-4 col-small rank-content">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>01</span>
+                                </div>
+                            </div>
+                            <span class="created-at-text">created at 4th April 2019</span>
+                        </div>
+                        <div class="col-3-of-4">
+                            <div class="fav-thing-info">
+                                <div class="col-3-of-4 fav-thing">
+                                    <span class="fav-title">Ngoulla Sob Christian</span>
+                                    <span class="fav-description">Hope you are doing well and hope this finds you well. I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply 
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                    </span>
+                                    <span class="fav-metadata">Some of the metadata that can exist</span>
+                                </div>
+                                <div class="col-1-of-4 col-small fav-item">
+                                    <div class="edit-icon-holder">
+                                        <svg class="edit-icon">
+                                            <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                                        </svg>
+                                    </div>
+                                    <span class="time">09:54</span>
+                                    <svg class="delete-icon">
+                                        <use xlink:href="icons/sprite.svg#icon-outline-delete_forever-24px"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li onclick="location.href='#';" class="list-items row">
+                        <div class="drag-dots-holder">
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                        </div>
+                        <div class="col-1-of-4 col-small rank-content">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>01</span>
+                                </div>
+                            </div>
+                            <span class="created-at-text">created at 4th April 2019</span>
+                        </div>
+                        <div class="col-3-of-4">
+                            <div class="fav-thing-info">
+                                <div class="col-3-of-4 fav-thing">
+                                    <span class="fav-title">Ngoulla Sob Christian</span>
+                                    <span class="fav-description">Hope you are doing well and hope this finds you well. I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply 
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                    </span>
+                                    <span class="fav-metadata">Some of the metadata that can exist</span>
+                                </div>
+                                <div class="col-1-of-4 col-small fav-item">
+                                    <div class="edit-icon-holder">
+                                        <svg class="edit-icon">
+                                            <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                                        </svg>
+                                    </div>
+                                    <span class="time">09:54</span>
+                                    <svg class="delete-icon">
+                                        <use xlink:href="icons/sprite.svg#icon-outline-delete_forever-24px"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li onclick="location.href='#';" class="list-items row">
+                        <div class="drag-dots-holder">
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                            <svg class="drag-dots-icon">
+                                <use xlink:href="icons/sprite.svg#icon-dots-three-vertical"></use>
+                            </svg>
+                        </div>
+                        <div class="col-1-of-4 col-small rank-content">
+                            <div class="rank">
+                                <span>Rank</span>
+                                <div class="number-holder">
+                                    <span>01</span>
+                                </div>
+                            </div>
+                            <span class="created-at-text">created at 4th April 2019</span>
+                        </div>
+                        <div class="col-3-of-4">
+                            <div class="fav-thing-info">
+                                <div class="col-3-of-4 fav-thing">
+                                    <span class="fav-title">Ngoulla Sob Christian</span>
+                                    <span class="fav-description">Hope you are doing well and hope this finds you well. I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply 
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
+                                    </span>
+                                    <span class="fav-metadata">Some of the metadata that can exist</span>
+                                </div>
+                                <div class="col-1-of-4 col-small fav-item">
+                                    <div class="edit-icon-holder">
+                                        <svg class="edit-icon">
+                                            <use xlink:href="icons/sprite.svg#icon-pencil"></use> 
+                                        </svg>
+                                    </div>
+                                    <span class="time">09:54</span>
+                                    <svg class="delete-icon">
+                                        <use xlink:href="icons/sprite.svg#icon-outline-delete_forever-24px"></use>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </li>
