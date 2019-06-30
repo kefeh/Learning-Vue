@@ -88,7 +88,7 @@
     fill: rgba(255, 255, 255, 0.8);
 }
 
-.edit-icon, .search-icon{
+.edit-icon, .search-icon, .add-btn-icon{
     width: 2.5vh;
     height: 2.5vh;
     fill: rgba(255, 255, 255, 0.8);
@@ -105,4 +105,9 @@
 }
 .drag-dots-icon:first-child{
     margin-right: -25%;
+}
+.add-btn-icon{
+    width: 3vh;
+    height: 3vh;
+    fill: rgba(255, 255, 255, 0.8);
 }

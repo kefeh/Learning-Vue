@@ -1,0 +1,55 @@
+.section-side {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10% 0;
+}
+
+.item{
+    padding: 0 1vw;
+    line-height: 4vh;
+    font-size: 2vh;
+}
+.category{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0.5rem !important;
+    box-shadow: none !important;
+    background-color: #0b91cb67;
+}
+
+/* Ranks */
+.rank-items{
+    height: 9vh;
+    width: 18vw;
+    margin-bottom: 1vh;
+    position: relative;
+}
+.cat-text{
+    padding: 0 2vw;
+    line-height: 4vh;
+}
+.rank-text{
+    color: white;
+    margin-bottom: 0.6vh;
+    font-size: 2vh;
+}
+
+/* add btn */
+.add-item{
+    position: absolute;
+    right: 10%;
+    bottom: 18%;
+    border-radius: 10rem;
+    padding: 1.8vh;
+    border: none;
+    outline: none;
+    background-color: #0987bd;
+    box-shadow: 0.3px 0.1px 0.2rem black;
+}
+.add-item::-moz-focus-inner{
+    border: none;
+}

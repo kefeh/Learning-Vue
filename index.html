@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/icon-holders.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/favorite-things.css">
+    <link rel="stylesheet" href="css/section-side.css">
+    <link rel="stylesheet" href="css/navigation.css">
     <title>Document</title>
 </head>
 <body>
@@ -30,7 +34,7 @@
         <div class="row">
             <div class="col-1-of-4">
                 <div class="card section-side">
-                    <div class="profile side-item1">
+                    <div class="profile">
                         <svg class="profile-icon">
                             <use xlink:href="icons/sprite.svg#icon-outline-account"></use>
                         </svg>
@@ -96,23 +100,19 @@
                 </div>
             </div>
             <div class="horizontal-gutter"></div>
-            <div class="col-3-of-4">
+            <!-- <div class="col-3-of-4 fav-thing-section">
                 <nav class="header">
                     <ul class="top-nav">
                         <li class="top-nav-item">
-                            <!-- clickable list items,using a tag as a placeholder -->
                             <span>Place</span>
                         </li>
                         <li class="top-nav-item">
-                            <!-- clickable list items,using a tag as a placeholder -->
                             <span>Person</span>
                         </li>
                         <li class="top-nav-item">
-                            <!-- clickable list items,using a tag as a placeholder -->
                             <span>Things</span>
                         </li>
                         <li class="top-nav-item">
-                            <!-- clickable list items,using a tag as a placeholder -->
                             <span>Movies</span>
                         </li>
                     </ul>
@@ -147,9 +147,6 @@
                                     <span class="fav-title">Ngoulla Sob Christian</span>
                                     <span class="fav-description">Hope you are doing well and hope this finds you well. I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply 
                                             I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
-                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
-                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
-                                            I am writing to follow up on the email on this thread. Since I responded, I haven't had a reply from you, I was wondering what next steps would be and how to proceed from here.
                                     </span>
                                     <span class="fav-metadata">Some of the metadata that can exist</span>
                                 </div>
@@ -341,6 +338,29 @@
                                     </svg>
                                 </div>
                             </div>
+                        </div>
+                    </li>
+                </ul>
+                <button class="add-item btn">
+                    <svg class="add-btn-icon">
+                        <use xlink:href="icons/sprite.svg#icon-outline-add-24px"></use>
+                    </svg>
+                </button>
+            </div> -->
+            <div class="col-3-of-4 category-section">
+                <nav class="header">
+                    <span>Category</span>
+                </nav>
+                <ul class="category-things">
+                    <li class="row list-item cats" onclick="location.href='#';">
+                        <div class="col-1-of-4 cat-leading">
+                            <div class="cat-title-holder">
+                                <span class="text">Person</span>
+                            </div>
+                        </div>
+                        <div class="col-3-of-4 cat-info">
+                            <div class="col-3-of-4"></div>
+                            <div class="col-1-of-4"></div>
                         </div>
                     </li>
                 </ul>
