@@ -1,0 +1,62 @@
+.header .cat-header{
+    display: flex;
+}
+.cat-header span{
+    margin: auto;
+    color: white;
+    font-size: 2.5vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cat-right-icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.cat-things-info{
+    font-size: 3vh;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    display: flex;
+}
+.cat-things-info span{
+    margin: auto;
+}
+.cat-info{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+.cat-leading .text{
+    border-radius: 0.5rem !important;
+    box-shadow: none !important;
+    background-color: #0b91cb67;
+    padding: 0.4vh 2vw;
+    font-size: 3vh;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+.cat-leading .created-at{
+    color: white;
+    font-size: 1.5vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.cat-leading{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.cats{
+    height: 16vh;
+    width: 100%;
+    border-radius: 2rem;
+    border: 0.4vh solid #0b91cb2a;
+    padding-left: 2vw;
+    margin-top: 2vh;
+}
+.cat-things{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
