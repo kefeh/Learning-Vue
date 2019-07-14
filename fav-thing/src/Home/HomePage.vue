@@ -1,5 +1,53 @@
+<template>
+  <div class="hello">
+    <section class="container">
+        <div class="section-query">
+            <form action="#" class="query-item search">
+                <input type="text" class="search-input" placeholder="Search favorite things">
+                <button class="search-button">
+                    <svg class="search-icon">
+                        <!-- <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use> -->
+                        <use xlink:href="../icons/sprite.svg#icon-baseline-search-24px"></use>
+                    </svg>
+                </button>
+            </form>
+            <button class="query-item sort-button btn">
+                <span>Sort By</span>
+                <svg class="sort-icon">
+                    <use xlink:href="icons/sprite.svg#icon-outline-expand_more-24px"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="row">
+            <SectionSide />
+            <div class="horizontal-gutter"></div>
+            <CategoriesContent />
+            <!-- <FavThings /> -->
+        </div>
+    </section>
+  </div>
+</template>
+
+<script>
+import SectionSide from '../sideSection/SectionSide.vue';
+import CategoriesContent from '../categories/CategoriesContent.vue';
+import FavThings from '../things/FavThings.vue';
+
+export default {
+  name: 'HomePage',
+  components: {
+    SectionSide,
+    CategoriesContent,
+    // FavThings,
+  },
+  props: {
+    msg: String,
+  },
+};
+</script>
 
 
+<style>
 section.container {
     max-width: 114rem;
     height: 92vh;
@@ -92,3 +140,5 @@ section.container {
     padding: 2.1vh 0;
 }
 
+
+</style>
