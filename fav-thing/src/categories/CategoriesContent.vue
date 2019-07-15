@@ -26,31 +26,21 @@
                 </div>
             </li>
         </ul>
-        <div class="pagination">
-            <div class="pag-button">
-                <button class="button" @click="setPrevCategorySet()">
-                    <svg class="pag-icon">
-                        <use href="../icons/sprite.svg#icon-baseline-arrow_back_ios-24px"></use>
-                    </svg>
-                </button>
-            </div>
-            <span>{{startSetNumber}}</span>
-            <span>{{currentSetNumber}}</span>
-            <span>{{endSetNumber}}</span>
-            <div class="pag-button">
-                <button class="button" @click="setNextCategorySet()">
-                    <svg class="pag-icon">
-                        <use href="../icons/sprite.svg#icon-baseline-arrow_forward_ios-24px"></use>
-                    </svg>
-                </button>
-            </div>
-        </div>
+        <Pagination 
+          @newSetGenerated="setDataPaginationValues"
+          :startSetNumber="startSetNumber"
+          :startIndex="startIndex"
+          :currentSetNumber="currentSetNumber"
+          :endSetNumber="endSetNumber"
+          :itemList="categories"
+          :numItems="numItems" />
     </div>
 </template>
 
 
 <script>
 import categories from '../data/categories';
+import Pagination from '../pagination/PaginationSection.vue'
 
 export default {
   name: 'CategoryContent',
@@ -61,7 +51,11 @@ export default {
       currentSetNumber: 1,
       startSetNumber: 1,
       endSetNumber: 0,
+      numItems: 4,
     };
+  },
+  components: {
+    Pagination,
   },
   computed: {
     getCategoryList() {
@@ -70,40 +64,20 @@ export default {
     },
   },
   methods: {
-    setNextCategorySet() {
-      let newStartIndex = this.startIndex + 4;
-      if (newStartIndex + 4 < this.categories.length) {
-          this.startIndex = newStartIndex;
-          this.currentSetNumber += 1;
-      } else {
-          if (this.categories.length - 5 < newStartIndex){
-              if (this.startIndex < (this.categories.length - 4)){
-                  this.currentSetNumber += 1;
-              }
-              this.startIndex = this.categories.length - 4;
-          };
-      };
-    },
-    setPrevCategorySet() {
-      let newStartIndex = this.startIndex - 4;
-      if (newStartIndex >= 0) {
-          this.startIndex = newStartIndex;
-          this.currentSetNumber -= 1;
-      } else {
-          this.startIndex = 0;
-          this.currentSetNumber = 1;
-      };
+    setDataPaginationValues(startIndex, currentSetNumber) {
+      this.startIndex = startIndex;
+      this.currentSetNumber = currentSetNumber;
     },
   },
   created: function() {
-      let totCategories = this.categories.length;
-      let firstGroup = totCategories % 4;
-      if (firstGroup * 4 < totCategories){
-        this.endSetNumber = firstGroup + 1;
-      } else {
-        this.endSetNumber = firstGroup;
-      }
+    let totItems = this.categories.length;
+    let firstGroup = totItems % 4;
+    if (firstGroup * 4 < totItems){
+    this.endSetNumber = firstGroup + 1;
+    } else {
+    this.endSetNumber = firstGroup;
     }
+  },
 };
 </script>
 
@@ -170,40 +144,5 @@ div.cat-info{
     flex-direction: column;
     align-items: center;
     justify-content: center
-}
-
-/* The Pagination */
-.pag-icon {
-    width: 2vw;
-    height: 3vh;
-    fill: white;
-}
-.button{
-    background-color: inherit;
-    border: none;
-    outline: none;
-    border-radius: 100px;
-    cursor: pointer;
-}
-.pagination {
-    color: white;
-    font-size: 2vh;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #0b91cb67;
-    border-radius: 100px;
-    width: 30%;
-    position: relative;
-    left: 70%;
-    height: 5vh;
-    margin-top: 2%;
-    padding: 0 1%;
-}
-.pagination>span:nth-of-type(2) {
-    background-color: #0b91cb;
-    padding: 2% 4%;
-    border-radius: 100px;
 }
 </style>

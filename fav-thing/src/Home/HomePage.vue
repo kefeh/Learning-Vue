@@ -21,8 +21,8 @@
         <div class="row">
             <SectionSide />
             <div class="horizontal-gutter"></div>
-            <CategoriesContent />
-            <!-- <FavThings /> -->
+            <!-- <CategoriesContent /> -->
+            <FavThings />
         </div>
     </section>
   </div>
@@ -30,19 +30,24 @@
 
 <script>
 import SectionSide from '../sideSection/SectionSide.vue';
-import CategoriesContent from '../categories/CategoriesContent.vue';
+// import CategoriesContent from '../categories/CategoriesContent.vue';
 import FavThings from '../things/FavThings.vue';
 
 export default {
   name: 'HomePage',
   components: {
     SectionSide,
-    CategoriesContent,
-    // FavThings,
+    // CategoriesContent,
+    FavThings,
   },
   props: {
     msg: String,
   },
+  data() {
+    return {
+      selectedCategory,
+    }
+  }
 };
 </script>
 

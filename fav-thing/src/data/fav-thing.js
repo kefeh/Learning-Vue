@@ -57,6 +57,28 @@ const favThings = {
       updated_at: '15-03-2019',
       rank: 6,
     },
+    {
+      id: 4,
+      description:
+          'A simple single-eyed head -- simple and inexpensive.',
+      title: 'Gilles Limnyuy',
+      category: 'Person',
+      metadata: 2098128,
+      created_at: '15-03-2019',
+      updated_at: '12:00am',
+      rank: 19,
+    },
+    {
+      id: 5,
+      description:
+          'A robot head with three oscillating eyes -- excellent for surveillance.',
+      title: 'Ngoulla Sob Asnel',
+      category: 'Person',
+      metadata: 'heads',
+      created_at: '15-03-2019',
+      updated_at: '15-03-2019',
+      rank: 10,
+    },
   ],
   Place: [
     {
