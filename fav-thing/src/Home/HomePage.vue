@@ -19,10 +19,10 @@
             </button>
         </div>
         <div class="row">
-            <SectionSide />
+            <SectionSide @catClick='setCategoryOption' @favClick='setFavThingOption'/>
             <div class="horizontal-gutter"></div>
-            <!-- <CategoriesContent /> -->
-            <FavThings />
+            <CategoriesContent v-if="showCategories" />
+            <FavThings v-if="showFavThings"/>
         </div>
     </section>
   </div>
@@ -30,24 +30,35 @@
 
 <script>
 import SectionSide from '../sideSection/SectionSide.vue';
-// import CategoriesContent from '../categories/CategoriesContent.vue';
+import CategoriesContent from '../categories/CategoriesContent.vue';
 import FavThings from '../things/FavThings.vue';
 
 export default {
   name: 'HomePage',
+  data() {
+    return {
+      showFavThings: true,
+      showCategories: false,
+    };
+  },
   components: {
     SectionSide,
-    // CategoriesContent,
+    CategoriesContent,
     FavThings,
+  },
+  methods: {
+    setCategoryOption() {
+      this.showCategories = true;
+      this.showFavThings = false;
+    },
+    setFavThingOption() {
+      this.showFavThings = true;
+      this.showCategories = false;
+    },
   },
   props: {
     msg: String,
   },
-  data() {
-    return {
-      selectedCategory,
-    }
-  }
 };
 </script>
 
@@ -56,7 +67,7 @@ export default {
 section.container {
     max-width: 114rem;
     height: 92vh;
-    margin: 2% 4%;
+    padding: 2% 4%;
 }
 .row{
     width: 100%;
@@ -129,13 +140,13 @@ section.container {
     margin-bottom: 4vh;
     margin-top: 5%;
 }
-.primary:focus, .primary:active{
+.btn-active{
     outline: none;
     border: none;
     background-color: #0b91cb;
     transition-duration: 500ms;
 }
-.primary::-moz-focus-inner{
+.btn-active::-moz-focus-inner{
     border: none;
 }
 .btn-text{

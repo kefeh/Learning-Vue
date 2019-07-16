@@ -17,7 +17,7 @@
             </div>
         </nav>
         <ul class="favorite-things">
-            <li v-for="(thing,index) in things" :key="index" onclick="location.href='#';" class="list-items row">
+            <li v-for="(thing, index) in things" :key="index" onclick="location.href='#';" class="list-items row">
                 <div class="drag-dots-holder">
                     <svg class="drag-dots-icon">
                         <use xlink:href="../icons/sprite.svg#icon-dots-three-vertical"></use>
@@ -64,66 +64,42 @@
                 <use xlink:href="../icons/sprite.svg#icon-outline-add-24px"></use>
             </svg>
         </button>
-        <Pagination 
-          @newSetGenerated="setDataPaginationValues"
-          :startSetNumber="startSetNumber"
-          :startIndex="startIndex"
-          :currentSetNumber="currentSetNumber"
-          :endSetNumber="endSetNumber"
-          :itemList="things"
-          :numItems="numItems" />
+        <ItemCount :numItems="numItems" />
     </div>
 </template>
 
 
 <script>
 import favoriteThings from '../data/fav-thing';
-import Pagination from '../pagination/PaginationSection.vue'
+import ItemCount from '../itemCounts/ItemCount.vue';
 
 export default {
   name: 'FavThings',
-  props: ['category'],
   components: {
-    Pagination,
+    ItemCount,
   },
   data() {
     return {
       favoriteThings,
-      things: favoriteThings.Person,
-      numItems: 5,
-      startIndex: 0,
-      currentSetNumber: 1,
-      startSetNumber: 1,
-      endSetNumber: 1,
+      things: [],
+      numItems: 0,
     };
   },
   computed: {
-    getFavThingsList() {
-      const favThingsList = this.things.slice(this.startIndex, this.startIndex+5);
-      return favThingsList;
-    },
     categories() {
       return Object.keys(favoriteThings);
     },
   },
   methods: {
-    setDataPaginationValues(startIndex, currentSetNumber) {
-      this.startIndex = startIndex;
-      this.currentSetNumber = currentSetNumber;
-    },
     selectedCategory(category) {
       this.things = this.favoriteThings[category];
+      this.numItems = this.things.length;
     },
   },
   created: function() {
-    let totItems = this.things.length;
-    let firstGroup = totItems % 5;
-    if (firstGroup * 5 < totItems || firstGroup === 0){
-    this.endSetNumber = firstGroup + 1;
-    } else {
-    this.endSetNumber = firstGroup;
-    };
-  },
+    this.things = this.favoriteThings.Person;
+    this.numItems = this.things.length;
+  }
 };
 </script>
 
@@ -232,6 +208,7 @@ export default {
     justify-content: space-around;
     align-items: flex-end;
     align-self: stretch;
+    margin-right: 2%;
 }
 
 /* Texts */
@@ -244,5 +221,11 @@ export default {
 }
 .fav-title, .time{
     font-size: 2vh;
+}
+
+.add-item{
+    position: absolute;
+    right: 10%;
+    bottom: 19%;
 }
 </style>

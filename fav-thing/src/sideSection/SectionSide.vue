@@ -8,7 +8,7 @@
                 <span>PROFILE NAME</span>
             </div>
             <div class="side-nav nav-btn">
-                <button class="add-new btn primary">
+                <button class="add-new btn primary"  @click="addItemClick()" :class="{'btn-active': showAddItem}">
                     <div class="btn-icon-holder icon-box">
                         <svg class="add-new-icon btn-icon">
                             <use xlink:href="../icons/sprite.svg#icon-outline-add-24px"></use>
@@ -16,7 +16,7 @@
                     </div>
                     <span class="btn-text">Add New</span>
                 </button>
-                <button class="add-new btn primary">
+                <button class="add-new btn primary" @click="favThingClick()" :class="{'btn-active': showThing}">
                     <div class="btn-icon-holder icon-box">
                         <svg class="add-new-icon btn-icon">
                             <use xlink:href="../icons/sprite.svg#icon-outline-nature_people-24px"></use>
@@ -24,7 +24,7 @@
                     </div>
                     <span class="btn-text">Fav Things</span>
                 </button>
-                <button class="add-new btn primary">
+                <button  class="add-new btn primary" @click="categoryClick()" :class="{'btn-active': showCategory}">
                     <div class="btn-icon-holder icon-box">
                         <svg class="cat-icon btn-icon">
                             <use xlink:href="../icons/sprite.svg#icon-outline-category-24px"></use>
@@ -32,7 +32,7 @@
                     </div>
                     <span class="btn-text">Categories</span>
                 </button>
-                <button class="add-new btn primary">
+                <button class="add-new btn primary" @click="auditLogClick()" :class="{'btn-active': showLogs}">
                     <div class="btn-icon-holder icon-box">
                         <svg class="audit-icon btn-icon">
                             <use xlink:href="../icons/sprite.svg#icon-outline-assessment-24px"></use>
@@ -73,7 +73,36 @@
 export default {
   name: 'SectionSide',
   data() {
-    return {};
+    return {
+      showCategory: false,
+      showThing: true,
+      showLogs: false,
+      showAddItem: false
+    };
+  },
+  methods: {
+    setClickedButton({showCategory = false, showThing = false, showLogs = false, showAddItem = false}) {
+      this.showCategory = showCategory;
+      this.showThing = showThing;
+      this.showLogs = showLogs;
+      this.showAddItem = showAddItem;
+    },
+    addItemClick() {
+      this.setClickedButton({showAddItem: true});
+      this.$emit('showAddItem');
+    },
+    favThingClick() {
+      this.setClickedButton({showThing: true});
+      this.$emit('favClick');
+    },
+    categoryClick() {
+      this.setClickedButton({showCategory: true});
+      this.$emit('catClick');
+    },
+    auditLogClick() {
+      this.setClickedButton({showLogs: true});
+      this.$emit('auditLogClick');
+    },
   },
 };
 </script>

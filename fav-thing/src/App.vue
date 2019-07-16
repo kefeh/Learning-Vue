@@ -216,7 +216,7 @@ html, body{
     border-radius: 0.8rem;
 }
 
-.primary:focus .btn-icon-holder, .primary:active .btn-icon-holder{
+.btn-active .btn-icon-holder{
     background-color: #263049;
     transition-duration: 500ms;
 }

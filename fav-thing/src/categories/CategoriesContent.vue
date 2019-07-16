@@ -3,8 +3,8 @@
         <nav class="header cat-header">
             <span class="cat-title">Category</span>
         </nav>
-        <ul class="cat-things" v-for="(category, index) in getCategoryList" :key="index">
-            <li class="row cats" onclick="location.href='#';">
+        <ul class="cat-things">
+            <li v-for="(category, index) in categories" :key="index" class="row cats" onclick="location.href='#';">
                 <div class="col-1-of-4 cat-leading">
                     <span class="text">{{category.name}}</span>
                     <span class="created-at">Created on {{category.createdAt}}</span>
@@ -26,57 +26,25 @@
                 </div>
             </li>
         </ul>
-        <Pagination 
-          @newSetGenerated="setDataPaginationValues"
-          :startSetNumber="startSetNumber"
-          :startIndex="startIndex"
-          :currentSetNumber="currentSetNumber"
-          :endSetNumber="endSetNumber"
-          :itemList="categories"
-          :numItems="numItems" />
+        <ItemCount :numItems="numItems" />
     </div>
 </template>
 
 
 <script>
 import categories from '../data/categories';
-import Pagination from '../pagination/PaginationSection.vue'
+import ItemCount from '../itemCounts/ItemCount.vue';
 
 export default {
   name: 'CategoryContent',
   data() {
     return {
       categories,
-      startIndex: 0,
-      currentSetNumber: 1,
-      startSetNumber: 1,
-      endSetNumber: 0,
-      numItems: 4,
+      numItems: categories.length,
     };
   },
   components: {
-    Pagination,
-  },
-  computed: {
-    getCategoryList() {
-      const categoryList = this.categories.slice(this.startIndex, this.startIndex+4);
-      return categoryList;
-    },
-  },
-  methods: {
-    setDataPaginationValues(startIndex, currentSetNumber) {
-      this.startIndex = startIndex;
-      this.currentSetNumber = currentSetNumber;
-    },
-  },
-  created: function() {
-    let totItems = this.categories.length;
-    let firstGroup = totItems % 4;
-    if (firstGroup * 4 < totItems){
-    this.endSetNumber = firstGroup + 1;
-    } else {
-    this.endSetNumber = firstGroup;
-    }
+    ItemCount,
   },
 };
 </script>
@@ -140,9 +108,9 @@ div.cat-info{
     margin-top: 2vh !important;
 }
 .cat-things{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
+    display: grid;
+    max-height: 72vh;
+    overflow-y: auto;
+    position: relative;
 }
 </style>
