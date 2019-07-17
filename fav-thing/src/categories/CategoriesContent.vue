@@ -26,6 +26,7 @@
                 </div>
             </li>
         </ul>
+        <AddButton/>
         <ItemCount :numItems="numItems" />
     </div>
 </template>
@@ -34,6 +35,7 @@
 <script>
 import categories from '../data/categories';
 import ItemCount from '../itemCounts/ItemCount.vue';
+import AddButton from '../addButton/AddButton.vue';
 
 export default {
   name: 'CategoryContent',
@@ -45,6 +47,7 @@ export default {
   },
   components: {
     ItemCount,
+    AddButton,
   },
 };
 </script>

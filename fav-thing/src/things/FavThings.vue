@@ -61,11 +61,7 @@
                 </div>
             </li>
         </ul>
-        <button class="add-item btn">
-            <svg class="add-btn-icon">
-                <use xlink:href="../icons/sprite.svg#icon-outline-add-24px"></use>
-            </svg>
-        </button>
+        <AddButton />
         <ItemCount :numItems="numItems" />
     </div>
 </template>
@@ -74,11 +70,13 @@
 <script>
 import favoriteThings from '../data/fav-thing';
 import ItemCount from '../itemCounts/ItemCount.vue';
+import AddButton from '../addButton/AddButton.vue';
 
 export default {
   name: 'FavThings',
   components: {
     ItemCount,
+    AddButton,
   },
   data() {
     return {
@@ -183,11 +181,11 @@ export default {
     bottom: 0;
     width: 90%;
     height: 4%;
-    transition-timing-function: cubic-bezier(.39,.58,.57,1);
+    transition-timing-function: ease-out;
 }
 .showing {
     background-color: #0b91cb !important;
-    transition-duration: 500ms;
+    transition-duration: 700ms;
 }
 
 /* Rank and content */
@@ -262,18 +260,4 @@ export default {
     font-size: 2vh;
 }
 
-.add-item{
-    position: absolute;
-    right: 10%;
-    bottom: 17%;
-    border-radius: 10rem;
-    padding: 1.8vh;
-    border: none;
-    outline: none;
-    background-color: #0987bd;
-    box-shadow: 0.3px 0.1px 0.2rem black;
-}
-.add-item::-moz-focus-inner{
-    border: none;
-}
 </style>
