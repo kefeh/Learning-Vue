@@ -8,6 +8,8 @@
                   :key="index"
                   @click="selectedCategory(category)">
                     <span>{{category}}</span>
+                    <div ></div>
+                    <div :class="['indicator', showIndicator(category)]"></div>
                 </li>
             </ul>
             <div class="extend">
@@ -17,7 +19,7 @@
             </div>
         </nav>
         <ul class="favorite-things">
-            <li v-for="(thing, index) in things" :key="index" onclick="location.href='#';" class="list-items row">
+            <li v-for="(thing, index) in things" :key="index" :class="[expandThis(index), 'list-items', 'row']">
                 <div class="drag-dots-holder">
                     <svg class="drag-dots-icon">
                         <use xlink:href="../icons/sprite.svg#icon-dots-three-vertical"></use>
@@ -37,7 +39,7 @@
                 </div>
                 <div class="col-3-of-4">
                     <div class="fav-thing-info">
-                        <div class="col-3-of-4 fav-thing">
+                        <div class="col-3-of-4 fav-thing" @click="indexToExpand(index)">
                             <span class="fav-title"> {{thing.title}} </span>
                             <span class="fav-description">
                                 {{thing.description}}
@@ -45,11 +47,11 @@
                             <span class="fav-metadata"> {{thing.metadata}} </span>
                         </div>
                         <div class="col-1-of-4 col-small fav-item">
-                            <div class="edit-icon-holder">
+                            <button class="edit-icon-holder">
                                 <svg class="edit-icon">
                                     <use xlink:href="../icons/sprite.svg#icon-pencil"></use>
                                 </svg>
-                            </div>
+                            </button>
                             <span class="time"> {{thing.updated_at}} </span>
                             <svg class="delete-icon">
                                 <use xlink:href="../icons/sprite.svg#icon-outline-delete_forever-24px"></use>
@@ -83,6 +85,9 @@ export default {
       favoriteThings,
       things: [],
       numItems: 0,
+      expandIndex: -1,
+      hover: 'hovering',
+      activeCat: 'Person',
     };
   },
   computed: {
@@ -91,15 +96,25 @@ export default {
     },
   },
   methods: {
+    showIndicator(category) {
+        return this.activeCat === category ? 'showing' : '';
+    },
     selectedCategory(category) {
       this.things = this.favoriteThings[category];
       this.numItems = this.things.length;
+      this.activeCat = category;
+    },
+    indexToExpand(idx) {
+      this.expandIndex = this.expandIndex === idx ? -1 : idx;
+    },
+    expandThis(idx) {
+      return this.expandIndex ===  idx ? 'expanded' : 'hovering';
     },
   },
   created: function() {
     this.things = this.favoriteThings.Person;
     this.numItems = this.things.length;
-  }
+  },
 };
 </script>
 
@@ -116,39 +131,63 @@ export default {
     pointer-events: all;
     cursor: pointer;
 }
-.list-items:hover .delete-icon {
+.hovering:hover .delete-icon {
     display: unset;
 }
-.list-items:hover .time{
+.hovering:hover .time{
     display: none;
 }
-.list-items:hover .drag-dots-holder{
+.hovering:hover .drag-dots-holder{
     display: flex;
 }
-.list-items:hover .rank-content{
+.hovering:hover .rank-content{
     margin-left: -2%;
 }
 
 /* This is the section I would want to show upon click */
-.list-items:active .fav-metadata, .list-items:active .created-at-text, .list-items:active .edit-icon-holder, .list-items:active .time{
+.expanded .fav-metadata, .expanded .created-at-text, .expanded .edit-icon-holder, .expanded .time{
     display: unset;
 }
-.list-items:active .edit-icon-holder, .list-items:active .time{
+.expanded .edit-icon-holder, .expanded .time{
     margin-right: 20%;
 }
-.list-items:active .delete-icon, .list-items:active .drag-dots-holder {
+.expanded .delete-icon, .expanded .drag-dots-holder {
     display: none;
 }
-.list-items:active .fav-description{
+.expanded .fav-description{
     overflow: unset;
     white-space: unset;
     text-overflow: unset;
 }
-.list-items:active .rank-content{
+.expanded .rank-content{
     margin-left: unset;
 }
-.list-items:active ~ .add-item .btn{
+.expanded ~ .add-item .btn{
     background-color:  #0b91cb15;
+}
+.top-nav-item {
+    position: relative;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+.top-nav-item>span{
+    margin-top: 15%;
+}
+.indicator {
+    background-color: #263049;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 4%;
+    transition-timing-function: cubic-bezier(.39,.58,.57,1);
+}
+.showing {
+    background-color: #0b91cb !important;
+    transition-duration: 500ms;
 }
 
 /* Rank and content */
@@ -199,7 +238,7 @@ export default {
     text-overflow: ellipsis !important;
     white-space: nowrap;
 }
-.fav-metadata, .created-at-text, div.edit-icon-holder{
+.fav-metadata, .created-at-text, button.edit-icon-holder{
     display: none;
 }
 .fav-item{
@@ -226,6 +265,15 @@ export default {
 .add-item{
     position: absolute;
     right: 10%;
-    bottom: 19%;
+    bottom: 17%;
+    border-radius: 10rem;
+    padding: 1.8vh;
+    border: none;
+    outline: none;
+    background-color: #0987bd;
+    box-shadow: 0.3px 0.1px 0.2rem black;
+}
+.add-item::-moz-focus-inner{
+    border: none;
 }
 </style>

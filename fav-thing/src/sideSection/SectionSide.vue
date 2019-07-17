@@ -150,19 +150,4 @@ export default {
     font-size: 2vh;
 }
 
-/* add btn */
-.add-item{
-    position: absolute;
-    right: 10%;
-    bottom: 18%;
-    border-radius: 10rem;
-    padding: 1.8vh;
-    border: none;
-    outline: none;
-    background-color: #0987bd;
-    box-shadow: 0.3px 0.1px 0.2rem black;
-}
-.add-item::-moz-focus-inner{
-    border: none;
-}
 </style>

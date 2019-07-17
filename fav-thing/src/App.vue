@@ -236,7 +236,7 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2vh;
+    padding: 1.8vh;
     background-color: #0b91cb;
     border-radius: 10rem;
     border: none;
