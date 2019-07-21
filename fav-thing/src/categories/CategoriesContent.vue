@@ -1,8 +1,6 @@
 <template>
     <div class="col-3-of-4 cat-section">
-        <nav class="header cat-header">
-            <span class="cat-title">Category</span>
-        </nav>
+        <NavHeader />
         <ul class="cat-things">
             <li v-for="(category, index) in categories" :key="index" class="row cats" onclick="location.href='#';">
                 <div class="col-1-of-4 cat-leading">
@@ -36,6 +34,7 @@
 import categories from '../data/categories';
 import ItemCount from '../itemCounts/ItemCount.vue';
 import AddButton from '../addButton/AddButton.vue';
+import NavHeader from '../navHeader/NavHeader.vue';
 
 export default {
   name: 'CategoryContent',
@@ -48,6 +47,7 @@ export default {
   components: {
     ItemCount,
     AddButton,
+    NavHeader
   },
 };
 </script>
@@ -111,9 +111,10 @@ div.cat-info{
     margin-top: 2vh !important;
 }
 .cat-things{
-    display: grid;
+    /* display: grid; */
     max-height: 72vh;
     overflow-y: auto;
     position: relative;
+    margin-bottom: 0;
 }
 </style>

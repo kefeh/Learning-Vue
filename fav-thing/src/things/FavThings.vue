@@ -8,7 +8,6 @@
                   :key="index"
                   @click="selectedCategory(category)">
                     <span>{{category}}</span>
-                    <div ></div>
                     <div :class="['indicator', showIndicator(category)]"></div>
                 </li>
             </ul>
@@ -37,9 +36,9 @@
                     </div>
                     <span class="created-at-text">Created on {{thing.created_at}}</span>
                 </div>
-                <div class="col-3-of-4">
+                <div class="col-3-of-4 some-grid">
                     <div class="fav-thing-info">
-                        <div class="col-3-of-4 fav-thing" @click="indexToExpand(index)">
+                        <div class="col-3-of-4 some-grid fav-thing" @click="indexToExpand(index)">
                             <span class="fav-title"> {{thing.title}} </span>
                             <span class="fav-description">
                                 {{thing.description}}
@@ -78,6 +77,7 @@ export default {
     ItemCount,
     AddButton,
   },
+  props: ['thingToShow'],
   data() {
     return {
       favoriteThings,
@@ -90,17 +90,30 @@ export default {
   },
   computed: {
     categories() {
-      return Object.keys(favoriteThings);
+      if (Boolean(this.thingToShow)){
+        let things =  Object.keys(favoriteThings);
+        if (this.thingToShow.length === 1 && !this.thingToShow.category){
+            return Object.keys(favoriteThings);
+        }     
+        return ["Results", ...things];
+      }else {
+        return Object.keys(favoriteThings);
+      }
     },
   },
   methods: {
     showIndicator(category) {
+        if (category != 'Results') {
+            console.log('Emitted');
+            this.$emit("releaseSearch")
+        };
         return this.activeCat === category ? 'showing' : '';
     },
     selectedCategory(category) {
       this.things = this.favoriteThings[category];
       this.numItems = this.things.length;
       this.activeCat = category;
+      this.$emit('thingsAvailable', this.favoriteThings);
     },
     indexToExpand(idx) {
       this.expandIndex = this.expandIndex === idx ? -1 : idx;
@@ -112,6 +125,7 @@ export default {
   created: function() {
     this.things = this.favoriteThings.Person;
     this.numItems = this.things.length;
+    this.$emit('thingsAvailable', this.favoriteThings);
   },
 };
 </script>
@@ -121,6 +135,7 @@ export default {
 .favorite-things{
     max-height: 70vh;
     overflow-y: auto;
+    margin-bottom: 0;
 }
 .list-items{
     color: white;
@@ -175,6 +190,9 @@ export default {
 .top-nav-item>span{
     margin-top: 15%;
 }
+.top-nav-item:hover{
+    background-color: #0b91cb0a;
+}
 .indicator {
     background-color: #263049;
     position: absolute;
@@ -216,6 +234,9 @@ export default {
 }
 
 /* avorite thing details */
+.some-grid {
+    display: grid;
+}
 .fav-thing-info{
     display: flex;
     justify-content: space-between;

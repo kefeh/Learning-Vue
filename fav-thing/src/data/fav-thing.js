@@ -6,7 +6,7 @@ const favThings = {
     {
       id: 1,
       description:
-          'A robot head with an unusually large eye and teloscpic neck -- excellent for exploring high spaces.',
+          'A robot head with an unusually large eye and teloscpic neck -- excellent for exploring high spaces.A robot head with an unusually large eye and teloscpic neck -- excellent for exploring high spaces.',
       title: 'Large Cyclops',
       category: 'Person',
       metadata: 'heads',
