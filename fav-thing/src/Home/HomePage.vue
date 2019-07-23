@@ -1,16 +1,16 @@
 <template>
-  <div class="hello">
+  <div class="hello" ref="document" @click="removeDropDown()">
     <section class="container">
         <div class="section-query">
             <form action="#" class="query-item search">
-                <input type="text" v-model="input" class="search-input" placeholder="Search favorite things">
+                <input type="text" v-model="input" class="search-input" placeholder="Search here" @keypress="setSeacher()">
                 <button class="search-button" @click="setSearchedThingView()">
                     <svg class="search-icon">
                         <!-- <use xlink:href="icons/sprite.svg#icon-magnifying-glass"></use> -->
                         <use xlink:href="../icons/sprite.svg#icon-baseline-search-24px"></use>
                     </svg>
                 </button>
-                <ul v-if="input" class="search-drop">
+                <ul v-if="input" class="search-drop" id="drop">
                     <li v-for="(result, index) in searchResults" :key="index">{{result.title}}</li>
                 </ul>
             </form>
@@ -24,8 +24,9 @@
         <div class="row">
             <SectionSide @catClick='setCategoryOption' @favClick='setFavThingOption'/>
             <div class="horizontal-gutter"></div>
-            <CategoriesContent v-if="showCategories" />
+            <CategoriesContent v-if="showCategories" @categoriesAvailable="cats => things = cats"/>
             <FavThings v-if="showFavThings" :thingToShow="thingToShow" @thingsAvailable="favThing => things = favThing"/>
+            <SearchResults v-if="showSearchResults" :section="theSection" :things="thingToShow" :numItems="numOfItems"/>
         </div>
     </section>
   </div>
@@ -35,6 +36,7 @@
 import SectionSide from '../sideSection/SectionSide.vue';
 import CategoriesContent from '../categories/CategoriesContent.vue';
 import FavThings from '../things/FavThings.vue';
+import SearchResults from '../searchResults/searchResults.vue';
 
 export default {
   name: 'HomePage',
@@ -42,54 +44,83 @@ export default {
     return {
       showFavThings: true,
       showCategories: false,
+      showSearchResults: false,
       searchResults: [],
+      showSearchDrop: false,
+      theSection: 'FavThing',
       input: '',
       thingToShow: {},
       things: {},
       cagories: {},
+      numOfItems: 0,
     };
   },
   components: {
     SectionSide,
     CategoriesContent,
     FavThings,
+    SearchResults,
   },
   methods: {
     setCategoryOption() {
       this.showCategories = true;
       this.showFavThings = false;
+      this.showSearchResults = false;
+      this.theSection = 'Category';
     },
     setFavThingOption() {
       this.showFavThings = true;
       this.showCategories = false;
+      this.showSearchResults = false;
+      this.theSection = 'FavThing';
     },
     setSearchedThingView(){
-        this.thingToShow = this.searchResults;
+      let sentResults = [...this.searchResults];
+      this.thingToShow = sentResults;
+      this.showSearchDrop = false;      
+      this.showSearchResults = true;
+      this.showFavThings = false;
+      this.showCategories = false;
+    },
+    setSeacher() {
+      document.getElementById('drop').style.display = 'unset';
     },
     matchedThings() {
         let returnVal = [];
-        for (var smthing in this.things) {
-            for(var something of this.things[smthing]) {
-                if(
-                    something.description.toLowerCase().includes(this.input.toLowerCase()) ||
-                    something.title.toLowerCase().includes(this.input.toLowerCase()))
-                    {
+        if(this.showFavThings || this.theSection ==='FavThing'){
+            for (var smthing in this.things) {
+                for(var something of this.things[smthing]) {
+                    if(
+                        something.description.toLowerCase().includes(this.input.toLowerCase()) ||
+                        something.title.toLowerCase().includes(this.input.toLowerCase()))
+                        {
+                        returnVal.push(something);
+                    }
+                }
+            }
+        }
+        if (this.showCategories || this.theSection=== 'Category') {
+            for (var something of this.things) {
+                if(something.title.toLowerCase().includes(this.input.toLowerCase())){
                     returnVal.push(something);
                 }
             }
         }
+        this.numOfItems = returnVal.length;
         if(returnVal.length == 0){
-            returnVal.push({name: 'No Favorite thing matched that', id: '', category: ''});
+            returnVal.push({title: 'Nothing matched that'});
+            this.numOfItems = 0;
         }
         return returnVal;
+    },
+    removeDropDown(){
+      document.getElementById('drop').style.display = 'none';
     }
-  },
-  props: {
-    msg: String,
   },
   watch: {
     input: {
       handler() {
+        this.showSearchDrop = true;
         this.searchResults = this.matchedThings();
       },
       immediate: true

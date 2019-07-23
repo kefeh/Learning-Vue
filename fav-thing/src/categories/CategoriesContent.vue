@@ -1,10 +1,10 @@
 <template>
     <div class="col-3-of-4 cat-section">
-        <NavHeader />
+        <NavHeader :title="'Categories'"/>
         <ul class="cat-things">
             <li v-for="(category, index) in categories" :key="index" class="row cats" onclick="location.href='#';">
                 <div class="col-1-of-4 cat-leading">
-                    <span class="text">{{category.name}}</span>
+                    <span class="text">{{category.title}}</span>
                     <span class="created-at">Created on {{category.createdAt}}</span>
                 </div>
                 <div class="col-3-of-4 cat-info">
@@ -49,6 +49,9 @@ export default {
     AddButton,
     NavHeader
   },
+  created: function() {
+    this.$emit('categoriesAvailable', this.categories);
+  }
 };
 </script>
 

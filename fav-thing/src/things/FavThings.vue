@@ -90,21 +90,12 @@ export default {
   },
   computed: {
     categories() {
-      if (Boolean(this.thingToShow)){
-        let things =  Object.keys(favoriteThings);
-        if (this.thingToShow.length === 1 && !this.thingToShow.category){
-            return Object.keys(favoriteThings);
-        }     
-        return ["Results", ...things];
-      }else {
-        return Object.keys(favoriteThings);
-      }
+      return Object.keys(favoriteThings);
     },
   },
   methods: {
     showIndicator(category) {
         if (category != 'Results') {
-            console.log('Emitted');
             this.$emit("releaseSearch")
         };
         return this.activeCat === category ? 'showing' : '';

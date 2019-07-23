@@ -90,7 +90,7 @@ html, body{
     padding: 0 4vh;
     height: 5vh;
     border-radius: 100px;
-    width: 90%;
+    width: 100%;
     background-color: #0b91cb3a;
     margin-right: -2vw;
     font-size: 2vh;
