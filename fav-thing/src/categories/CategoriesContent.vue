@@ -2,7 +2,7 @@
     <div class="col-3-of-4 cat-section">
         <NavHeader :title="'Categories'"/>
         <ul class="cat-things">
-            <li v-for="(category, index) in categories" :key="index" class="row cats" onclick="location.href='#';">
+            <li v-for="(category, index) in categories" :key="index" class="row cats" @click="setClickedCategory(category.title)">
                 <div class="col-1-of-4 cat-leading">
                     <span class="text">{{category.title}}</span>
                     <span class="created-at">Created on {{category.createdAt}}</span>
@@ -49,9 +49,14 @@ export default {
     AddButton,
     NavHeader
   },
+  methods: {
+    setClickedCategory(cat) {
+      this.$emit('clickedCategory', cat);
+    },
+  },
   created: function() {
     this.$emit('categoriesAvailable', this.categories);
-  }
+  },
 };
 </script>
 

@@ -24,8 +24,8 @@
         <div class="row">
             <SectionSide @catClick='setCategoryOption' @favClick='setFavThingOption'/>
             <div class="horizontal-gutter"></div>
-            <CategoriesContent v-if="showCategories" @categoriesAvailable="cats => things = cats"/>
-            <FavThings v-if="showFavThings" :thingToShow="thingToShow" @thingsAvailable="favThing => things = favThing"/>
+            <CategoriesContent v-if="showCategories" @clickedCategory="setClickedCategory" @categoriesAvailable="cats => things = cats"/>
+            <FavThings v-if="showFavThings" :thingToShow="thingToShow" :category="category" @thingsAvailable="favThing => things = favThing"/>
             <SearchResults v-if="showSearchResults" :section="theSection" :things="thingToShow" :numItems="numOfItems"/>
         </div>
     </section>
@@ -51,7 +51,7 @@ export default {
       input: '',
       thingToShow: {},
       things: {},
-      cagories: {},
+      category: '',
       numOfItems: 0,
     };
   },
@@ -81,6 +81,10 @@ export default {
       this.showSearchResults = true;
       this.showFavThings = false;
       this.showCategories = false;
+    },
+    setClickedCategory(cat) {
+      this.category = cat;
+      this.setFavThingOption();
     },
     setSeacher() {
       document.getElementById('drop').style.display = 'unset';

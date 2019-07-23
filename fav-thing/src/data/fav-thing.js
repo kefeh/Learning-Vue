@@ -80,7 +80,7 @@ const favThings = {
       rank: 10,
     },
   ],
-  Place: [
+  Places: [
     {
       id: 1,
       description: 'An articulated arm with a claw -- great for reaching around corners or working in tight spaces.',

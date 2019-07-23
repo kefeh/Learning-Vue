@@ -77,7 +77,7 @@ export default {
     ItemCount,
     AddButton,
   },
-  props: ['thingToShow'],
+  props: ['thingToShow', 'category'],
   data() {
     return {
       favoriteThings,
@@ -114,8 +114,9 @@ export default {
     },
   },
   created: function() {
-    this.things = this.favoriteThings.Person;
+    this.things = this.category ? this.favoriteThings[this.category] : this.favoriteThings.Person;
     this.numItems = this.things.length;
+    this.activeCat = this.category ? this.category : 'Person';
     this.$emit('thingsAvailable', this.favoriteThings);
   },
 };
