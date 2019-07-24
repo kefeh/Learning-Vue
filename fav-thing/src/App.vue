@@ -180,6 +180,7 @@ html, body{
     width: 1vw;
     height: 2vh;
     fill: rgba(255, 255, 255, 0.30);
+    cursor: move;
 }
 .drag-dots-icon:first-child{
     margin-right: -25%;

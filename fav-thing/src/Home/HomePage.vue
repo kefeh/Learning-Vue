@@ -22,7 +22,7 @@
             </button>
         </div>
         <div class="row">
-            <SectionSide @catClick='setCategoryOption' @favClick='setFavThingOption'/>
+            <SectionSide @catClick='setCategoryOption' @favClick='setFavThingOption' ref="sectionSide"/>
             <div class="horizontal-gutter"></div>
             <CategoriesContent v-if="showCategories" @clickedCategory="setClickedCategory" @categoriesAvailable="cats => things = cats"/>
             <FavThings v-if="showFavThings" :thingToShow="thingToShow" :category="category" @thingsAvailable="favThing => things = favThing"/>
@@ -84,6 +84,7 @@ export default {
     },
     setClickedCategory(cat) {
       this.category = cat;
+      this.$refs.sectionSide.setFavThing();
       this.setFavThingOption();
     },
     setSeacher() {

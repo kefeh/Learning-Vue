@@ -95,6 +95,9 @@ export default {
       this.setClickedButton({showThing: true});
       this.$emit('favClick');
     },
+    setFavThing() {
+      this.setClickedButton({showThing: true});
+    },
     categoryClick() {
       this.setClickedButton({showCategory: true});
       this.$emit('catClick');
