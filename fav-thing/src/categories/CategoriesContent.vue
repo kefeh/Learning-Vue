@@ -2,28 +2,39 @@
     <div class="col-3-of-4 cat-section">
         <NavHeader :title="'Categories'"/>
         <ul class="cat-things">
-            <li v-for="(category, index) in categories" :key="index" class="row cats" @click="setClickedCategory(category.title)">
+            <li v-for="(category, index) in categories" :key="index" class="row cats">
                 <div class="col-1-of-4 cat-leading">
-                    <span class="text">{{category.title}}</span>
+                    <span v-if="!setEdited(index)" class="text">{{category.title}}</span>
+                    <form id="inputForm" action="#" v-if="setEdited(index)">
+                       <input type="text" class="text cat-edit-input" v-model="input" :placeholder="category.title">
+                    </form>
                     <span class="created-at">Created on {{category.createdAt}}</span>
                 </div>
                 <div class="col-3-of-4 cat-info">
-                    <div class="col-3-of-4 cat-things-info">
+                    <div class="col-3-of-4 cat-things-info" @click="setClickedCategory(category.title)">
                         <span>{{category.numberOfThings}} favorite things</span>
                     </div>
                     <div class="col-1-of-4 cat-right-icons">
                         <svg class="delete-icon" style="display:unset">
                             <use xlink:href="../icons/sprite.svg#icon-outline-delete_forever-24px"></use>
                         </svg>
-                        <div style="display: unset">
+                        <button v-if="!setEdited(index)" class="cat-edit-icon-holder" style="display: unset" @click="setEditCategory(index)">
                             <svg class="edit-icon">
                                 <use xlink:href="../icons/sprite.svg#icon-pencil"></use>
                             </svg>
-                        </div>
+                        </button>
+                        <button form="inputForm" value="submit" class="cat-save" v-if="setEdited(index)" @click="setSave()">
+                            Save
+                        </button>
                     </div>
                 </div>
             </li>
         </ul>
+        <div v-if="deletedCategory" class="delete">
+            <span>Are you Sure you want to delete {{}} ?</span>
+            <button class="noBtn">No<button>
+            <button class="yesBtn">Yes</button>
+        </div>
         <AddButton/>
         <ItemCount :numItems="numItems" />
     </div>
@@ -42,6 +53,9 @@ export default {
     return {
       categories,
       numItems: categories.length,
+      editIndex: -1,
+      input: '',
+      deletedCategory: '',
     };
   },
   components: {
@@ -53,6 +67,21 @@ export default {
     setClickedCategory(cat) {
       this.$emit('clickedCategory', cat);
     },
+    setEditCategory(index) {
+      this.editIndex = index;
+    },
+    setEdited(index) {
+      return this.editIndex === index;
+    },
+    setSave() {
+      console.log(this.input);
+      this.editIndex = -1;
+    //   TODO: Handle update of the category after the save methode is clicked.
+      this.input = '';
+    },
+    setDelete(category) {
+      this.deletedCategory = category;
+    },
   },
   created: function() {
     this.$emit('categoriesAvailable', this.categories);
@@ -62,6 +91,16 @@ export default {
 
 
 <style>
+.cat-edit-icon-holder {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 10%;
+}
+.cat-edit-input {
+    color: rgba(255, 255, 255, 0.726);
+    width: 70%;
+}
 .header .cat-header{
     display: flex;
 }
