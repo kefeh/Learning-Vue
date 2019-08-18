@@ -15,10 +15,12 @@
                         <span>{{category.numberOfThings}} favorite things</span>
                     </div>
                     <div class="col-1-of-4 cat-right-icons">
-                        <svg class="delete-icon" style="display:unset">
-                            <use xlink:href="../icons/sprite.svg#icon-outline-delete_forever-24px"></use>
-                        </svg>
-                        <button v-if="!setEdited(index)" class="cat-edit-icon-holder" style="display: unset" @click="setEditCategory(index)">
+                        <button @click="setDelete(category)" class="cat-edit-icon-holder">
+                            <svg class="delete-icon" style="display:unset">
+                                <use xlink:href="../icons/sprite.svg#icon-outline-delete_forever-24px"></use>
+                            </svg>
+                        </button>
+                        <button v-if="!setEdited(index)" class="cat-edit-icon-holder" @click="setEditCategory(index)">
                             <svg class="edit-icon">
                                 <use xlink:href="../icons/sprite.svg#icon-pencil"></use>
                             </svg>
@@ -30,13 +32,17 @@
                 </div>
             </li>
         </ul>
-        <div v-if="deletedCategory" class="delete">
-            <span>Are you Sure you want to delete {{}} ?</span>
-            <button class="noBtn">No<button>
-            <button class="yesBtn">Yes</button>
-        </div>
         <AddButton/>
         <ItemCount :numItems="numItems" />
+        <div v-if="deletedCategoryName" class="holder">
+            <div class="delete">
+                <span class="pop-up-text">Are you Sure you want to delete {{deletedCategoryName}} ?</span>
+                <div class="buttons">
+                    <button class="noBtn" @click="unsetDelete()">No</button>
+                    <button class="yesBtn" @click="confirmDelete()">Yes</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -55,7 +61,8 @@ export default {
       numItems: categories.length,
       editIndex: -1,
       input: '',
-      deletedCategory: '',
+      deletedCategoryName: '',
+      deletedCategory: {},
     };
   },
   components: {
@@ -80,8 +87,20 @@ export default {
       this.input = '';
     },
     setDelete(category) {
+      this.deletedCategoryName = category.title;
       this.deletedCategory = category;
+      console.log(this.deletedCategoryName)
+      console.log(this.deletedCategory)
     },
+    unsetDelete() {
+      this.deletedCategoryName = '';
+      this.deletedCategory = {};
+    },
+    confirmDelete() {
+    //   TODO: complete Backend and frontend for delete function
+      this.deletedCategoryName = '';
+      this.deletedCategory = {};
+    }
   },
   created: function() {
     this.$emit('categoriesAvailable', this.categories);
@@ -91,6 +110,50 @@ export default {
 
 
 <style>
+.pop-up-text {
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+.noBtn, .yesBtn {
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 2px;
+    margin-left: 1rem;
+}
+.holder {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.438);
+    top: 0;
+    left: 0;
+    display: grid;
+}
+.delete {
+    position: relative;
+    margin: auto;
+    background-color: #0b91cbe3;
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    box-shadow: 2rem 0.5rem 2rem #161b2b;
+}
+.cat-save {
+    background-color: #0b91cb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 2px;
+}
+.cat-section {
+    position: relative;
+}
 .cat-edit-icon-holder {
     background: none;
     border: none;
